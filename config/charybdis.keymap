@@ -4,6 +4,18 @@
 #include <dt-bindings/zmk/mouse.h>
 
 / {
+    behaviors {
+        tsl_slow: behavior_trackball_scroll_slow {
+            compatible = "zmk,behavior-point-device-incremental";
+            label = "TRACKBALL_SCROLL_SLOW";
+            #trackball-binding-cells = <0>;
+            mode = "scroll-mode";
+            flavor = "default";
+            scale_mode = "dividor";
+            scale_factor = <2>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -16,7 +28,7 @@
                 &kp LCTRL &kp Z &kp X &kp C &kp V &kp B &kp N &kp M &kp COMMA &kp DOT &kp SLASH &kp LEFT_ALT
                 &mo 2 &kp SPACE &mo 1 &kp LEFT_SHIFT &kp RET &kp GRAVE &kp BSPC &kp DEL
             >;
-            trackball-bindings = <&tmv>;
+            trackball-bindings = <&tmv_coarse>;
         };
 
         layer_1 {
@@ -28,7 +40,7 @@
                 &none &none &none &none &bootloader &none &kp KP_MULTIPLY &kp KP_N1 &kp KP_N2 &kp KP_N3 &kp SLASH &kp DOT
                 &trans &trans &trans &kp CAPS &kp KP_N0 &trans &trans &trans
             >;
-            trackball-bindings = <&tmv>;
+            trackball-bindings = <&tmv_coarse>;
         };
 
         layer_2 {
@@ -40,7 +52,7 @@
                 &kp C_PREV &kp HOME &kp PG_UP &kp PG_DN &kp END &tog 6 &tog 7 &bootloader &none &none &none &kp C_VOL_DN
                 &trans &trans &trans &trans &trans &trans &trans &trans
             >;
-            trackball-bindings = <&tmv>;
+            trackball-bindings = <&tmv_coarse>;
         };
 
         layer_3 {
@@ -52,7 +64,7 @@
                 &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
                 &trans &trans &trans &trans &trans &trans &trans &trans
             >;
-            trackball-bindings = <&tmv>;
+            trackball-bindings = <&tmv_coarse>;
         };
 
         layer_4 {
@@ -76,7 +88,7 @@
                 &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
                 &trans &trans &trans &trans &trans &trans &trans &trans
             >;
-            trackball-bindings = <&tsl_fine>;
+            trackball-bindings = <&tsl_slow>;
         };
 
         layer_6 {
@@ -112,7 +124,7 @@
                 &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
                 &trans &trans &trans &trans &trans &trans &trans &trans
             >;
-            trackball-bindings = <&tmv>;
+            trackball-bindings = <&tmv_coarse>;
         };
 
         layer_9 {
@@ -124,7 +136,7 @@
                 &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
                 &trans &trans &trans &trans &trans &trans &trans &trans
             >;
-            trackball-bindings = <&tmv>;
+            trackball-bindings = <&tmv_coarse>;
         };
 
         layer_10 {
@@ -136,7 +148,7 @@
                 &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
                 &trans &trans &trans &trans &trans &trans &trans &trans
             >;
-            trackball-bindings = <&tmv>;
+            trackball-bindings = <&tmv_coarse>;
         };
 
     };
