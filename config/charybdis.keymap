@@ -13,14 +13,6 @@
     quick-tap-ms = <150>;
 };
 
-&mmv_input_listener {
-    input-processors = <&zip_xy_scaler 2 1>;
-};
-
-&msc_input_listener {
-    input-processors = <&zip_scroll_scaler 2 1>;
-};
-
 &msc {
     acceleration-exponent = <0>;
     time-to-max-speed-ms = <100>;
@@ -86,64 +78,6 @@
             #binding-cells = <0>;
             bindings = <&rgb_ug RGB_EFF &rgb_ug RGB_COLOR_HSB(250,100,50) &to 2>;
         };
-
-
-        DPIp: DPIp {
-            compatible = "zmk,behavior-macro";
-            label = "DPI+";
-            #binding-cells = <0>;
-            bindings = <&none>;
-        };
-
-        DPIm: DPIm {
-            compatible = "zmk,behavior-macro";
-            label = "DPI-";
-            #binding-cells = <0>;
-            bindings = <&none>;
-        };
-
-        SnpPlus: SnpPlus {
-            compatible = "zmk,behavior-macro";
-            label = "Snp+";
-            #binding-cells = <0>;
-            bindings = <&none>;
-        };
-
-        SnpMinus: SnpMinus {
-            compatible = "zmk,behavior-macro";
-            label = "Snp-";
-            #binding-cells = <0>;
-            bindings = <&none>;
-        };
-
-        SnpT: SnpT {
-            compatible = "zmk,behavior-macro";
-            label = "SnpT";
-            #binding-cells = <0>;
-            bindings = <&none>;
-        };
-
-        DrgT: DrgT {
-            compatible = "zmk,behavior-macro";
-            label = "DrgT";
-            #binding-cells = <0>;
-            bindings = <&none>;
-        };
-
-        DrgM: DrgM {
-            compatible = "zmk,behavior-macro";
-            label = "DrgM";
-            #binding-cells = <0>;
-            bindings = <&none>;
-        };
-
-        QK_CL: QK_CL {
-            compatible = "zmk,behavior-macro";
-            label = "QK_CL";
-            #binding-cells = <0>;
-            bindings = <&bootloader>;
-        };
-
     };
 
     keymap {
@@ -165,7 +99,7 @@
                 &kp GRAVE &kp N1 &kp N2 &kp N3 &kp N4 &kp N5 &kp N6 &kp N7 &kp N8 &kp N9 &kp N0 &kp MINUS
                 &none &none &none &none &none &none &kp LEFT_BRACKET &kp KP_N7 &kp KP_N8 &kp KP_N9 &kp RIGHT_BRACKET &kp BSLH
                 &none &kp LWIN &kp LEFT_ALT &kp LCTRL &kp LEFT_SHIFT &none &kp KP_PLUS &kp KP_N4 &kp KP_N5 &kp KP_N6 &kp EQUAL &kp SQT
-                &none &none &none &none &QK_CL &none &kp KP_MULTIPLY &kp KP_N1 &kp KP_N2 &kp KP_N3 &kp FSLH &kp PERIOD
+                &none &none &none &none &bootloader &none &kp KP_MULTIPLY &kp KP_N1 &kp KP_N2 &kp KP_N3 &kp FSLH &kp PERIOD
                 &trans &trans &trans &trans &trans &kp CAPS &kp KP_N0 &trans
             >;
         };
@@ -174,9 +108,9 @@
         layer_2 {
             bindings = <
                 &kp F12 &kp F1 &kp F2 &kp F3 &kp F4 &kp F5 &kp F6 &kp F7 &kp F8 &kp F9 &kp F10 &kp F11
-                &kp C_NEXT &none &mmv MOVE_UP &none &SnpT &DrgT &DrgT &DrgM &none &none &none &kp C_VOLUME_UP
-                &kp C_PLAY_PAUSE &mkp MB1 &mkp MB2 &mkp MB3 &SnpMinus &SnpPlus &SnpPlus &kp LEFT &kp RIGHT &kp UP &kp DOWN &kp C_MUTE
-                &kp C_PREV &kp HOME &kp PG_UP &kp PG_DN &kp END &DPIm &DPIp &QK_CL &none &none &none &kp C_VOLUME_DOWN
+                &kp C_NEXT &none &mmv MOVE_UP &none &none &none &none &none &none &none &none &kp C_VOLUME_UP
+                &kp C_PLAY_PAUSE &mkp MB1 &mkp MB2 &mkp MB3 &none &none &none &kp LEFT &kp RIGHT &kp UP &kp DOWN &kp C_MUTE
+                &kp C_PREV &kp HOME &kp PG_UP &kp PG_DN &kp END &none &none &bootloader &none &none &none &kp C_VOLUME_DOWN
                 &trans &trans &trans &trans &trans &trans &trans &trans
             >;
         };
